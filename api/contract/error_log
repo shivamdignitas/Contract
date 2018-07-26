@@ -1,0 +1,13 @@
+[03-May-2018 09:04:46 Etc/GMT] PHP Notice:  Undefined index: sub_scope in /home/ccsqadignitasglo/public_html/contractify/api/contract/update.php on line 26
+[02-Jul-2018 11:31:02 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 7
+[02-Jul-2018 11:31:02 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 20
+[02-Jul-2018 11:31:02 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 27
+[02-Jul-2018 11:31:02 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 34
+[02-Jul-2018 11:31:23 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 7
+[02-Jul-2018 11:31:23 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 20
+[02-Jul-2018 11:31:23 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 27
+[02-Jul-2018 11:31:23 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 34
+[02-Jul-2018 11:31:58 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 7
+[02-Jul-2018 11:31:58 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 20
+[02-Jul-2018 11:31:58 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 27
+[02-Jul-2018 11:31:58 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ccsqadignitasglo/public_html/contractify/api/contract/read.php on line 34
