@@ -22,13 +22,16 @@ $(document).ready(function () {
             data: {},
             success: function (data) {
                 var parsed_data = JSON.parse(data);
-                parsed_data.forEach(element => {
-                    var d = new Date(0);
-                    d.setUTCSeconds(element.history);
+                parsed_data.forEach((element, i) => {
+                    //var d = new Date(0);
+                    //d.setUTCSeconds(element.history);
+                    d = element.history;
                     gridData.addRow(
 
                         [
-                            element.contract_id,
+                            //element.contract_id,
+                            (i+1).toString(),
+                            element.client_name,
                             element.contract_name,
                             "<a id = 'downlaod' download='"+element.name+"' class='download' href='" + host_url + "generated/logs/"+element.name+"'>"+element.name+"</a>",
                             ""+d
@@ -50,6 +53,7 @@ $(document).ready(function () {
     function loadTableSchema() {
         gridData = new google.visualization.DataTable();
         gridData.addColumn('string', 'S.No.');
+        gridData.addColumn('string', 'Client Name');
         gridData.addColumn('string', 'Contract Name');
         gridData.addColumn('string', 'Contract Pdf');
         gridData.addColumn('string', 'Update Time');

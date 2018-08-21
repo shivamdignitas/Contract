@@ -48,7 +48,7 @@ $(document).ready(function () {
         success: function (data) {
             contractDetail = JSON.parse(data);
             $.ajax({
-                url: get_service,
+                url: get_service_admin,
                 type: "get",
                 data: {},
                 success: function (data1) {
@@ -90,7 +90,7 @@ $(document).ready(function () {
                                         tempArrayObjects.push(service);
                                         $("#scope_list").append('<li><label for="master_' + service.id + '"> ' + service.service_name + '</label><ul id="sub_list_' + service.id + '"></ul></li >');
                                     }
-                                } else
+                                } else {
                                     if (subServiceIdList.indexOf(service.parent_id) < 0) {
                                         var isChecked = "";
                                         var isPresent = contractDetail.sub_services_ids.indexOf(("" + service.id));
@@ -120,6 +120,7 @@ $(document).ready(function () {
                                         $("#sub_sub_list_" + service.parent_id).append('<li class="sub-l3-li"><div><label for="input-lable1"> <input type="checkbox" ' + isChecked + 'class="subOption" id="input-lable1"data-master-id="' + service.parent_id + '" value="' + service.id + '" name="sub_sub_' + service.parent_id + '"/> ' + service.service_name + '</label>&nbsp;</div></li>');
 
                                     }
+                                }
 
                             });
 

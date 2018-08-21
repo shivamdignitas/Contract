@@ -115,7 +115,8 @@
 
     <!-- Include our app.js file, this will contain the logic on frontend -->
     <script src="../js/common.js"></script>
-    <script src="../js/service.js"></script>
+    <!--<script src="../js/service.js"></script>-->
+    <script src="../js/app_create.js"></script>
 
 </body>
 

@@ -195,6 +195,7 @@ input[type=text], input[type=file], select, textarea {
 .check label{padding-left:5px; vertical-align: top;} 
 .seobox ul li{margin-bottom:30px;}
 .update, .view, .download, .del{ padding:0 5px;}
+.update img, .view img, .download img, .del img{width:20px !important;}
 .update:hover, .view:hover, .download:hover, .del:hover{opacity: 0.7;}
 .logo img{width:120px;}
 .entclint h3{padding-bottom: 50px;}
@@ -237,7 +238,7 @@ input[type=text], input[type=file], select, textarea {
 .sidebar .logo, .sidebar[data-background-color="white"] .logo{border-bottom:solid 1px #fff;}
 .sidebar .logo{margin: 0;}
 #table_div table thead tr{background-color: #a10251;}
-.google-visualization-table-table th{color:#fff;}
+.google-visualization-table-table th{color:#fff; font-size:11px; text-align: center;}
 .no-pad{padding-left:0; padding-right:0;}
 .main-panel > .content{min-height: 590px;}
 .leagel-btn{margin: 0 auto; text-align: center;width:100%; display: inline-block;}
@@ -291,6 +292,7 @@ ul#sub_sub_list_2 li div label {
 .google-visualization-table-table td{
     /*word-break: break-all;*/
     word-break:break-word;
+    font-size: 11px;
 }
 .google-visualization-table-table th:last-child {
     padding: 0 60px;

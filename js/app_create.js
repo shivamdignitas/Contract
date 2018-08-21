@@ -2,6 +2,7 @@ var clientList = null;
 var serviceList = null;
 var legalList = null;
 var fileName = null;
+var companyList = null;
 
 $(document).ready(function () {
 
@@ -36,6 +37,12 @@ $(document).ready(function () {
         isOpen_2 = !isOpen_2;
     });
 
+    //$('#existing_company_list').on('change', function () {
+        //var selected = $('#existing_company_list').find(":selected").attr('data-client-id');
+        //updateExistingClient(selected);
+    //});
+
+
     $('#existing_client_list').on('change', function () {
         var selected = $('#existing_client_list').find(":selected").attr('data-client-id');
         updateExistingClient(selected);
@@ -44,8 +51,26 @@ $(document).ready(function () {
     $('#client_pan').keyup(function() {
         $(this).val($(this).val().toUpperCase());
     });
+
+    var queryStringObject = getUrlVars();
+
     $.ajax({
-        url: get_client,
+        url: allcompany + "?id=" + queryStringObject['id'],
+        type: "get",
+        data: {},
+        success: function (data) {
+            clientList = JSON.parse(data);
+            $("#existing_company_list").append('<option class="nav-item client-pill">Select</option>');
+            clientList.forEach(company => {
+
+                $("#existing_company_list").append('<option class="nav-item client-pill"  data-client-id="' + company.company_id + '">' + company.company_name + '</option>');
+            });
+        }
+    });
+
+
+     $.ajax({
+        url: get_client + "?id=" + queryStringObject['id'],
         type: "get",
         data: {},
         success: function (data) {
@@ -64,7 +89,7 @@ $(document).ready(function () {
     var subServiceIdList = [];
     var subSubServiceList = [];
     $.ajax({
-        url: get_service,
+        url: get_service_admin,
         type: "get",
         data: {},
         success: function (data) {
@@ -94,7 +119,7 @@ $(document).ready(function () {
                 if (subService.id > 44 && subService.id <= 55) {
                     $("#sub_list_" + subService.parent_id).append('<li><div class="check"><label for="input-lable-' + subService.id + '"> <input type="checkbox" id="input-lable-' + subService.id + '" class="subOption" data-master-id="' + subService.parent_id + '" value="' + subService.id + '" name="sub_' + subService.parent_id + '"/> ' + subService.service_name + '</label>&nbsp;</div>&nbsp;&nbsp;&nbsp;&nbsp;<div class = "price"><input style="opacity: 0;" id ="price_' + subService.id + '" type="number" value="' + subService.service_price + '"/></div>&nbsp;&nbsp;&nbsp;&nbsp;<div class = "comm"><textarea style="opacity: 0;" id = "comment_' + subService.id + '" type="text" placeholder="Enter Comments"/></textarea></div><br /><ul id="sub_sub_list_' + subService.id + '"></ul></li>');
                 } else {
-                    $("#sub_list_" + subService.parent_id).append('<li><div class="check"> <label for="input-lable-' + subService.id + '"> <input type="checkbox" id="input-lable-' + subService.id + '" class="subOption" data-master-id="' + subService.parent_id + '" value="' + subService.id + '" name="sub_' + subService.parent_id + '"/> ' + subService.service_name + '</label>&nbsp;</div>&nbsp;&nbsp;&nbsp;&nbsp;<div class = "price"> <input id ="price_' + subService.id + '" type="number" value="' + subService.service_price + '"/></div>&nbsp;&nbsp;&nbsp;&nbsp;<div class = "comm"><textarea id = "comment_' + subService.id + '" type="text" placeholder="Enter Comments"/></textarea></div><br /><ul id="sub_sub_list_' + subService.id + '"></ul></li>');
+                    $("#sub_list_" + subService.parent_id).append('<li><div class="check"> <label for="input-lable-' + subService.id + '"> <input type="checkbox" id="input-lable-' + subService.id + '" class="subOption" data-master-id="' + subService.parent_id + '" value="' + subService.id + '" name="sub_' + subService.parent_id + '"/> ' + subService.service_name + '</label>&nbsp;</div>&nbsp;&nbsp;&nbsp;&nbsp;<div class = "price"><label for="price"> Price Tag  <span style="color:red"></span></label><input id ="price_' + subService.id + '" type="number" value="' + subService.service_price + '"/></div>&nbsp;&nbsp;&nbsp;&nbsp;<div class = "comm"><textarea id = "comment_' + subService.id + '" type="text" placeholder="Enter Comments"/></textarea></div><br /><ul id="sub_sub_list_' + subService.id + '"></ul></li>');
                 }
             });
 
@@ -134,6 +159,17 @@ $(document).ready(function () {
 
         }
     });
+
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
 
     $("#client_gstn_upload").change(function (evt) {
         var files = evt.target.files;
@@ -254,11 +290,12 @@ $(document).ready(function () {
 
 
         $.ajax({
-            url: create_contract,
+            url: create_contract + "?id=" + queryStringObject['id'],
             type: "post",
             data: dataFromForm,
             success: function (data) {
-               
+               //console.log(data);
+               data = $.trim(data);
                 $("#downpdf_link").attr("href", host_url + "generated/contracts/" + data);
                 $('.success-alert-overlay').show();
                 $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -297,3 +334,4 @@ function populateClientFields(client_object) {
     $('#gstn_preview').attr('download', client_object.client_gstn_name);
     $('#gstn_preview').html(client_object.client_gstn_name);
 }
+

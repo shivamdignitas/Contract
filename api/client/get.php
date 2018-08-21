@@ -1,8 +1,10 @@
 <?php
 
     include("../common/db.php");
-    
-    $query = "SELECT * FROM dd_client";
+    $id = $_GET['id'];
+    //echo $id;
+
+    $query = "SELECT * FROM `dd_company` INNER JOIN `dd_client` ON dd_company.company_id = dd_client.company_id WHERE dd_company.company_id='".$id."'";
 
     $query_res = mysqli_query($conn,$query);
 

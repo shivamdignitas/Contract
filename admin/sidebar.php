@@ -9,13 +9,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="create.php">
+                    <a href="company.php">
+                        <i class="ti-panel"></i>
+                        <p>Accounts</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="create1.php">
                         <i class="ti-pencil-alt"></i>
                         <p>Create Contract</p>
                     </a>
                 </li>
                 <li>
-                    <a href="upload.php">
+                    <a href="Upload1.php">
                         <i class="ti-cloud-up"></i>
                         <p>Upload</p>
                     </a>
@@ -24,6 +30,12 @@
                     <a href="services.php">
                         <i class="ti-check-box"></i>
                         <p>Select Services</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="display.php">
+                        <i class="ti-cloud-up"></i>
+                        <p>Uploaded Contracts</p>
                     </a>
                 </li>
                 <li>

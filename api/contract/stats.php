@@ -10,10 +10,14 @@
 	$query2 = "SELECT `id` FROM dd_service_list WHERE `parent_id` IS NULL";
 	$result2 = mysqli_num_rows(mysqli_query($conn,$query2));
 
+	$query3 = "SELECT `company_id` FROM dd_company WHERE `is_deleted` = 0";
+	$result3 = mysqli_num_rows(mysqli_query($conn,$query3));
+
 	$final_data = array(
 		"total_contracts" => $result,
 		"total_client" => $result1,
-		"total_master" => $result2
+		"total_master" => $result2,
+		"total_company" => $result3
 
 	);
 

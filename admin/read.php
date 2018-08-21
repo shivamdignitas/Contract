@@ -22,7 +22,7 @@
         <div class="row heading">
             <div class="col-sm-10">
                 <div class="logo logoleft">
-                    <img src="../images/logo.png" />
+                    <a href="dashboard.php"><img src="../images/logo.png" /></a>
                 </div>
             </div>
             <div class="col-sm-2 ">
@@ -134,11 +134,11 @@
                         <div class="col-sm-12">
                             <div class="form-sec">
                                 <h3>Legal</h3>
-                                <ul id="legal" name="legal_terms"></ul>
+                                <ul id="legal" name="legal_terms" readonly></ul>
                             </div>
                             <div class="form-sec">
                                 <h3>Service Level Agreement</h3>
-                                <ul id="sla" name="sla_terms"></ul>
+                                <ul id="sla" name="sla_terms" readonly></ul>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,8 @@
 
         <!-- Include our app.js file, this will contain the logic on frontend -->
         <script src="../js/common.js"></script>
-        <script src="../js/read.js"></script>
+        <!--<script src="../js/read.js"></script>-->
+        <script src="../js/app_detail.js"></script>
 
 </body>
 

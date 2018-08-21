@@ -23,9 +23,10 @@ $(document).ready(function () {
             success: function (data) {
                 
                 var parsed_data = JSON.parse(data);
-                    parsed_data.forEach(element => {
+                    parsed_data.forEach((element, i) => {
                         gridData.addRow(
                         [
+                            (i+1).toString(),
                             element.MasterService,
                             element.SubService,
                             element.ServicePrice,
@@ -42,6 +43,7 @@ $(document).ready(function () {
 
 function loadTableSchema(){
     gridData = new google.visualization.DataTable();
+    gridData.addColumn('string', 'S.No.');
     gridData.addColumn('string', 'Master Service');
     gridData.addColumn('string', 'Sub Service');
     gridData.addColumn('string', 'Service Price');

@@ -23,7 +23,15 @@
     $contract_start_date = filter_var($_POST['contract_start_date'], FILTER_SANITIZE_STRING);
     $contract_type = filter_var($_POST['contract_type'], FILTER_SANITIZE_STRING);
     $contract_scope = ($_POST['scope']);
-    $contract_sub_scope = ($_POST['sub_scope']);
+    //$contract_sub_scope = ($_POST['sub_scope']);
+    $contract_sub_scope = NULL;
+    if(isset($_POST['sub_scope']))
+        { 
+            if ($_POST ['sub_scope'] != "")
+                {
+                    $contract_sub_scope = ($_POST['sub_scope']);
+                }
+        }
     $contract_legal = ($_POST['legal']);
     $contract_sla = ($_POST['sla']);
     $client_id = filter_var($_POST['client_id'], FILTER_SANITIZE_STRING);
@@ -58,11 +66,16 @@
 
     }
 
+    if(isset($_POST['sub_scope']))
+    {
+
     $size = count($contract_sub_scope);
     for($i=0;$i<$size;$i++) {
         $query3 = "INSERT INTO `dd_service_mapping` (`map_id`,`contract_id`, `service_list_id`,`price`,`comment`) VALUES (NULL ,'".$contract_id."','".$contract_sub_scope[$i]['id']."','0','N.A.');";
         $result = mysqli_query($conn,$query3);
     }
+
+}
 
     $size = count($contract_legal);
     //$arr = array();
@@ -368,6 +381,7 @@
     $pdf->Output($fileNL1,'F');
 
     echo $filename;
+    //echo $filename1;
     
 
 ?>

@@ -44,22 +44,7 @@
                     <h2>Upload Contract</h2>
                 </div>
      
-               <div class="chosbox">
-                                <p>Choose from Existing Client: </p>
-
-                               <select name="selectmaster" id="dropDownId">
-                                            <option value="">Select from Existing Client</option>
-                                            <?php
-                                              include '../api/common/db.php';
-
-                                              $sql = "SELECT client_id, client_name FROM dd_client";
-                                              $result = mysqli_query($conn, $sql);
-
-                                                while($row = mysqli_fetch_array($result)){
-                                                  echo '<option value="'.$row["id"].'">'.$row["client_name"].'</option>';
-                                                } 
-                                            ?>
-                                        </select>
+               
 <div class ="upload_con">
             <div class="success-alert-overlay">
                 <div class="row success-alert">
@@ -69,7 +54,7 @@
                             <p>Contract has been successfully uploaded.</p>
                             <hr>
                             <p class="mb-0">
-                                <a id="downpdf_link" target="_blank">Click here</a> to download the PDF.</p>
+                                <a id="downpdf_link" download=''>Click here</a> to download the PDF.</p>
                         </div>
                     </div>
                 </div>
@@ -81,14 +66,32 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <div class="form-sec entclint">
+                        <!--<div class="chosbox">
+                                <p>Choose from Existing Company: </p>
+
+                                <select id="existing_company_list" class="nav nav-pills">
+                                </select>
+                            </div>-->
+
+                         <div class="chosbox">
+                                <p>Choose from Existing Client: </p>
+
+                                <select id="existing_client_list" class="nav nav-pills">
+                                </select>
+                            </div>
+
+                            
                       <div class="addnewbox">
                         <ul>
                         <li>
+                        <label for="client_name">Client Name<span style="color:red">*</span></label>
+                        <input type="text" id="client_name" name="client_name" required>
                         <label for="upload">Select</label>
                         <input type="file" id="contract_upload" required>
                         <input type="hidden" id="upload_con" name="upload_con">
                         <input type="hidden" id="upload_name" name = "upload_name">
-                        
+                        <br />
+                        <a id='contract_preview' download='' href=''></a>
                         </li>
                        </ul>
                      </div>  
@@ -136,13 +139,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
      crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="..js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 
     <!-- Include our app.js file, this will contain the logic on frontend -->
     <script src="../js/common.js"></script>
     <script src="../js/upload.js"></script>
     <script src="../js/app_create.js"></script>
-
 
 </body>
 

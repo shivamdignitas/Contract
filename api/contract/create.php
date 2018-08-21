@@ -7,6 +7,8 @@
     if(empty($_POST))
     die("Invalid Argumanets");
 
+    $id = $_GET['id'];
+    //echo $id;
     $client_email_address = filter_var($_POST['client_email_address'], FILTER_SANITIZE_STRING);
     $client_billing_address = ($_POST['client_billing_address']);
     $client_contact_no = filter_var($_POST['client_contact_no'], FILTER_SANITIZE_STRING);
@@ -30,14 +32,19 @@
     
     $client_id = null;
     $q = "SELECT `client_id` FROM dd_client WHERE `client_pan` = '".$client_pan."' ";
+    //echo $q;
     $r = mysqli_num_rows(mysqli_query($conn,$q));
-    
+    //echo $r;
     if(!empty($_POST['client_id'])) {
         $client_id = $_POST['client_id'];
     } else {
-        if($r<1){  
-            $query = "INSERT INTO `dd_client` ( `client_id`, `client_name`, `client_spoc`, `client_email_address`, `client_contact_no`, `client_pan`, `client_gstn`, `client_gstn_name`, `client_billing_address`,`client_payment_terms`, `client_recurring` ) VALUES (NULL, '".$client_name."', '".$client_spoc."', '".$client_email_address."', '".$client_contact_no."', '".$client_pan."', '".$client_gstn."', '".$client_gstn_name."', '".$client_billing_address."','".$client_payment_terms."','0');";
+        //echo "gupta";
+        if($r<1){ 
+        //echo "shivam"; 
+            $query = "INSERT INTO `dd_client`(`client_id`, `company_id`, `client_name`, `client_spoc`, `client_email_address`, `client_contact_no`, `client_pan`, `client_gstn`, `client_gstn_name`, `client_billing_address`, `client_payment_terms`, `client_recurring`) VALUES (NULL,'".$id."','".$client_name."','".$client_spoc."','".$client_email_address."','".$client_contact_no."','".$client_pan."','".$client_gstn."','".$client_gstn_name."','".$client_billing_address."','".$client_payment_terms."','0')";
+            //echo $query;
             $result_1 = mysqli_query($conn,$query);
+            //echo $result_1;
         }
         
         if($result_1 == 1) {
@@ -350,7 +357,6 @@
 
         $pdf->Output($fileNL,'F');
         $pdf->Output($fileNL1,'F');
-
         echo $filename;
     } else {
         die("Error in inserting client.");

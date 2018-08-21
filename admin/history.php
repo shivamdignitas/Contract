@@ -22,7 +22,9 @@
 
 
 <?php include '../includes/admin-header-path.php';?>
-
+    <style type="text/css">
+        spans { display: none; }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -38,9 +40,13 @@
                 </div> -->
                 
                     <div class="row">
+                        <div class="col-sm-9">
+                           <h2>Contract History</h2>
+                        </div>
                         <div class="col-sm-12 nopad">
                             <div id="table_div"></div>
                         </div>
+                        
                     </div>
                      
                 

@@ -23,7 +23,7 @@
         <div class="row heading">
             <div class="col-sm-10">
                 <div class="logo logoleft">
-                    <img src="../images/logo.png" />
+                    <a href="dashboard.php"><img src="../images/logo.png" /></a>
                 </div>
             </div>
             <div class="col-sm-2 ">

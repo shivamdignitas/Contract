@@ -1,5 +1,6 @@
 var nameList = null;
 var fileName = null;
+var clientId = null;
 
 $(document).ready(function () {
     $('.success-alert-overlay').hide();
@@ -14,10 +15,13 @@ $(document).ready(function () {
         });
     });
 
+    
+
+    var fileName = null;
     $("#contract_upload").change(function (evt) {
         var files = evt.target.files;
         var file = files[0];
-        var fileName = file.name;
+        fileName = file.name;
 
         if (files && file) {
             var reader = new FileReader();
@@ -28,6 +32,9 @@ $(document).ready(function () {
                 $('#upload_con').val(q);
                 $('#contract_preview').attr('href', 'data:application/pdf;base64,' + q);
                 $('#upload_name').val(fileName);
+                $('#contract_preview').attr('href', 'data:application/pdf;base64,' + q);
+                $('#contract_preview').attr('download', fileName);
+                $('#contract_preview').html(fileName);
 
             };
 
@@ -56,6 +63,8 @@ $(document).ready(function () {
             type: "post",
             data: dataFromForm,
             success: function (data) {
+                $("#downpdf_link").attr('href', 'data:application/preventDefault;base64,' + data);
+                $('#downpdf_link').attr('download', fileName);
                 $('.success-alert-overlay').show();
                 $("html, body").animate({ scrollTop: 0 }, "slow");
                 $("#upload_contract").trigger('reset');
@@ -76,3 +85,4 @@ $(document).ready(function () {
 
     });
 });
+

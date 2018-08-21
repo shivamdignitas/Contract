@@ -48,10 +48,15 @@
 				</div>
 				<div class="col-sm-12">
 					<input type="submit" id="submit" value="Login" />
+					<p> New User?<a href="register.php"> Register</a></p>
+					<a href="forgotpassword.php">forgot Password</a>
 				</div>
+				
+				
 				<div class="clr"></div>
 			</div>
 		</form>
+
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="js/common.js"></script>
